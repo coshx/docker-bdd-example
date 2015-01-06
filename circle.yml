@@ -7,14 +7,14 @@ machine:
 dependencies:
   override:
     - sudo pip install git+http://github.com/btaitelb/fig.git@tail
+    - fig build
     - fig up -d
-    - gem install cucumber
 
 test:
   override:
-    - fig run app rake
+    - fig run app bundle exec rake
   post:
-    - fig logs --no-tail > ${CIRCLE_ARTIFACTS}/fig.log
+    - fig logs > ${CIRCLE_ARTIFACTS}/fig.log
     - cp log/* ${CIRCLE_ARTIFACTS}
     
 deployment:

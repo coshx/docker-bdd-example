@@ -11,8 +11,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: "sudo pip install -U fig"
   config.vm.provision "shell", inline: "sudo usermod -a -G docker vagrant"
 
-  config.vm.provision "shell", inline: "sudo apt-get install -y cucumber"
-
   # launch all the docker containers as part of provisioning
   config.vm.provision "shell", inline: "cd docker-bdd && fig build && fig up -d"
 end
