@@ -1,5 +1,6 @@
 Example Rails App using DockerBDD
 =================================
+[![Circle CI](https://circleci.com/gh/coshx/docker-bdd-example.svg)](https://circleci.com/gh/coshx/docker-bdd-example)
 
 This demonstrates how to use the images we've built from
 [DockerBDD](https://github.com/coshx/docker-bdd) to run, test, and
