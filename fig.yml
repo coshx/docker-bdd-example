@@ -1,0 +1,30 @@
+db:
+  image: postgres
+  ports:
+    - "5432"
+web:
+  image: coshx/dockerbdd_web:5532cbd
+  ports:
+    - "80:80"
+  volumes:
+    - .:/www
+  links:
+    - app
+app:
+  build: .
+  ports:
+    - "3000:3000"
+  volumes:
+    - .:/app
+  links:
+    - db
+
+# `fig run dev` will bring us to a nice dev environment
+# where we can run commands like `rails g scaffold`
+dev:
+  build: .
+  command: /usr/bin/zsh
+  volumes:
+    - .:/app
+  links:
+    - db
