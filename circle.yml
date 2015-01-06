@@ -7,9 +7,7 @@ machine:
 dependencies:
   override:
     - sudo pip install git+http://github.com/btaitelb/fig.git@tail
-    - fig build
     - fig up -d
-    - sleep 10
 
 database:
   override:
