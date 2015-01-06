@@ -12,7 +12,7 @@ web:
     - app
 app:
   build: .
-  command: startup.sh
+  command: /app/startup.sh
   ports:
     - "3000:3000"
   volumes:
