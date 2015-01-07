@@ -8,6 +8,5 @@ for name in `docker ps -f status=running  | awk -F '  +' 'NR > 1 {name=$7; sub(/
     SHA=${CIRCLE_SHA1:0:7}
     IMG=${CIRCLE_PROJECT_USERNAME}/$name:$SHA
 
-    docker tag $name:latest $IMG
-    docker push $IMG
+    docker tag $name:latest $IMG && docker push $IMG || true
 done
